@@ -1,8 +1,8 @@
 package day01;
 
-import java.sql.*;
+import java.sql.*; 
 
-import javax.xml.stream.events.StartElement;
+
 
 public class _01_JDBCTest {
 	public static void main(String[] args) {

@@ -45,9 +45,9 @@ public class _01_EmpSelect {
 			int comm = rs.getInt(7);
 			int deptno = rs.getInt(8);
 
-			System.out.printf("%d\t%s\t%s\t%d\t%s\t%d\t%d\t%d\n", 
-					no, name, job, mgr, hireDate.toString(), sal, comm, deptno);
-
+			System.out.printf("%d\t %s\t %s\t %d\t %s\t %d\t %d\t %d\n", 
+					           no, name, job, mgr, hireDate.toString(), sal, comm, deptno);
+			
 		}
 		if (rs != null)
 			rs.close();
