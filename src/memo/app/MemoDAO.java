@@ -5,10 +5,8 @@ import common.util.*;
 import java.util.*;
 
 /**
- * 
  * @author a 영속성 계층 (Persistence Layer)에 속함 DAO ( Data Access Object) : 데이터에
  *         접근해서 CRUD의 로직을 수행하는 객체 => Model
- *
  */
 
 public class MemoDAO {
@@ -17,7 +15,7 @@ public class MemoDAO {
 	private ResultSet rs;
 
 	/**
-	 * 한줄 메모장에 insert문을 수행하는 메서드
+	 * 한줄 메모장에 insert문을 수행하는 메서드 (C)
 	 */
 
 	public int insertMemo(MemoVo memo) throws SQLException {

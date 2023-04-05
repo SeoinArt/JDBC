@@ -2,7 +2,6 @@ package memo.app;
 
 import java.sql.Date;
 /**
- * 
  * @author a
  * Domain 객체
  * VO(Value Object) : DB에서 가져온 값이나, UI통해 입력받은 값을 담고 있는 객체
@@ -23,6 +22,9 @@ public class MemoVo {
 		this.name = name;
 		this.msg = msg;
 		this.wdate = wdate;
+	}
+	public MemoVo(String a1, String a2) {
+		this(0,a1,a2,null);
 	}
 	//setter, getter-----
 	public int getNo() {
