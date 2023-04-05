@@ -1,8 +1,46 @@
 package memo.app;
 
 import javax.swing.*;
+
 import java.awt.*;
 import java.awt.event.*;
+import java.util.*;
+import java.text.*;
+
+/**
+ * ---------------------------------
+ * @author 박서인
+ * 작성일 : 2023-04-05
+ * 버 전 : 1.1
+ * 한줄 메모장 애플리케이션의 화면을 담당하는 클래스
+ * ---------------------------------
+ * 
+ * MFC(c++),JFC(java swing)
+ * MVC 패턴===> 웹 mvc패턴 도입
+ * 
+ * 모델1 방식 : mvc패턴을 적용하지 않을 때
+ * 모델2 방식 : mvc패턴 적용
+ * 
+ * Model  :  DB접근 로직(DB처리 로직을 갖는다. CRUD) [Persistence Layer-영속성 계층]
+ * 			 VO(Value Object, DTO (Data Transfer Object),  DAO (Data Access Object) : DB에 접근해서 CRUD 로직을 수행함. 
+ * View   :  화면단 (Presentatioin Layer) - Swing, HTML(JSP)
+ * 
+ * Controller: Model View사이에서 제어하는 역할을 담당하는 계층. Event Handler,  Servlet/SpringFramework Controller
+ * 
+ * MemoAppView:=> GUI /View 담당 [Presentatioin Layer]
+ * XXXDAO: DB접근 로직(DB처리 로직을 갖는다. CRUD)
+ * 		   Data Access Object  [Persistence Layer-영속성 계층]
+ * XXXVO/XXXDTO [Domain Layer]
+ *  Value Object/ Data Transfer Object : 사용자가 입력한 값을 담거나 DB에서 가져온 값을 갖고 있는 객체
+ * 	
+ *    
+ * 
+ * 
+ */
+
+
+
+
 
 public class MemoAppView extends JFrame {
 
@@ -61,29 +99,18 @@ public class MemoAppView extends JFrame {
 		pN_sub_2.add(btAdd = new JButton("글 등록"));
 		pN_sub_2.add(btList = new JButton("글 목록"));
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+
 		
 		tfDate.setEditable(false);
 		tfDate.setForeground(Color.blue);
 		tfDate.setFont(new Font("Serif",Font.BOLD,14));
 		tfDate.setHorizontalAlignment(JTextField.CENTER);
-		tfDate.setText("2023-03-31");
+		String date = this.getSysDate();
+		tfDate.setText(date);
 		tfNo.setEditable(false);
 		
 		
-		
-		
-		
-		
+	
 
 		pS.add(btDel = new JButton("글 삭제"));
 		pS.add(btEdit = new JButton("글 수정"));
@@ -92,6 +119,24 @@ public class MemoAppView extends JFrame {
 		
 
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+	// 생성자 ------
+	// 현재 날짜를 yyyy-MM-dd 포맷의 문자열로 변환하여 반환하는 메서드
+	
+	public String getSysDate() {
+		Date today = new Date(); // java.util.Date 
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		String str = sdf.format(today);
+		return str;
+		
+		
+		/*  java  => yy : 년도 MM: 월 dd : 일  hh : 시간 mm : 분 ss : 초
+		 * Oracle => yy : 년도 mm: 월 dd : 일  hh : 시간 mi : 분 ss : 초
+		 */
+		 
+		
+		
+		
 	}
 
 	public static void main(String[] args) {
