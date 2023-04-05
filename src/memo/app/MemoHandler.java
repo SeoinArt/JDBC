@@ -24,9 +24,10 @@ public class MemoHandler implements ActionListener {
 
 //		app.setTitle("event 처리 중 ...");
 		Object obj = e.getSource();
-		if (obj == app.btAdd)
+		if (obj == app.btAdd) {
 			addMemo();
-
+			app.clearInput();
+		}
 //		MemoAppView app = new MemoAppView();
 //		app.setTitle("event 처리 중 ...");
 //		app.setSize(400,300);

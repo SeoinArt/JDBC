@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"common.util"},{"l":"day01"},{"l":"day02"},{"l":"day03"},{"l":"day04"},{"l":"day05"},{"l":"memo.app"}]
