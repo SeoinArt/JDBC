@@ -42,6 +42,42 @@ public class MemoDAO {
 		}
 	}// ---------------------------------------	
 	
+	/** 전체 메글을 가져오는 메서드
+	 * 
+	 */
+	
+	public  List<MemoVo>listMemo() throws SQLException{
+		try {
+			con = DBUtil.getCon();
+			StringBuilder buf = new StringBuilder("SELECT rpad(no,10,' ') no, rpad(name,10,' ') name,");
+			buf.append( "rpad(msg,120,' ') msg, wdate FROM memo ORDER BY no DESC ");
+			String sql = buf.toString();
+			
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			
+			List<MemoVo> arr = new ArrayList<>();
+			while(rs.next()) {
+				int no = rs.getInt("no");
+				String name = rs.getString("name");
+				String msg = rs.getString("msg");
+				java.sql.Date date = rs.getDate("wdate");
+				
+				MemoVo memo = new MemoVo(no,name,msg,date);
+				arr.add(memo);
+			}
+			
+			return arr;
+			
+		}finally {
+			close();
+		}
+		
+	}
+	
+	
+	
+	
 	/**
 	 * DB관련한 자원들을 반납하는 메서드
 	 */

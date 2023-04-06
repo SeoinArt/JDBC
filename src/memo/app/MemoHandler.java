@@ -27,13 +27,31 @@ public class MemoHandler implements ActionListener {
 		if (obj == app.btAdd) {
 			addMemo();
 			app.clearInput();
+		}else if (obj == app.btList) {
+			listMemo();
 		}
+		
+		
+		
 //		MemoAppView app = new MemoAppView();
 //		app.setTitle("event 처리 중 ...");
 //		app.setSize(400,300);
 //		app.setVisible(true);
 	}
 
+	public void listMemo() {
+		try {
+			List<MemoVo> arr = dao.listMemo();
+			app.setTitle("전체 글 갯수 : "+arr.size()+"개 입니다.");
+			// 모델 (dao)를 통해서 받아온 데이터를 화면단(app)에게 넘겨준다.
+			app.showTextArea(arr);
+		}catch(SQLException e) {
+			app.showMessage(e.getMessage());
+		}
+	}//-------------------------------
+	
+	
+	
 	public void addMemo() {
 		// [1] app 의 tfName, tfMsg에 입력한 값 얻어오기
 		String name = app.tfName.getText();

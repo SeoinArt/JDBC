@@ -5,6 +5,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.*;
+import java.util.List;
 import java.text.*;
 
 /**
@@ -155,10 +156,26 @@ public class MemoAppView extends JFrame {
 		 */
 	}
 
+	
+	/** 전체 메모 글을 textArea에 출력해주는 메서드
+	 * 
+	 * 
+	 */
+	public void showTextArea(List<MemoVo> arr) {
+		if(arr == null || arr.size() == 0) {
+			ta.setText("데이터가 없습니다");
+		}else {
+			for(MemoVo vo:arr) {
+				ta.append("\t"+vo.getNo()+"\t"+vo.getName()+"\t"+vo.getMsg()+"\t"+vo.getWdate()+"\n");
+			}// for----
+		}
+	}
 	public static void main(String[] args) {
 		MemoAppView my = new MemoAppView();
 		my.setSize(800, 500);
 		my.setVisible(true);
 	}
+
+
 
 }
