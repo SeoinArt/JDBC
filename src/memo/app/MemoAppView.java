@@ -118,10 +118,6 @@ public class MemoAppView extends JFrame {
 		btEdit.addActionListener(handler);
 		btEditEnd.addActionListener(handler);
 		btFind.addActionListener(handler);
-		
-		
-		
-
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 	
@@ -165,15 +161,36 @@ public class MemoAppView extends JFrame {
 		if(arr == null || arr.size() == 0) {
 			ta.setText("데이터가 없습니다");
 		}else {
+			ta.setText("");
+			ta.append("===============================================================================================================\n");
+			ta.append("\t글번호\t 작성자\t 메모내용\t\t\t\t\t작성일\n");
+			ta.append("===============================================================================================================\n");
 			for(MemoVo vo:arr) {
 				ta.append("\t"+vo.getNo()+"\t"+vo.getName()+"\t"+vo.getMsg()+"\t"+vo.getWdate()+"\n");
 			}// for----
+			ta.append("===============================================================================================================\n");
 		}
 	}
 	public static void main(String[] args) {
 		MemoAppView my = new MemoAppView();
 		my.setSize(800, 500);
 		my.setVisible(true);
+	}
+
+	public String showInputDialog(String str) {
+		String res = JOptionPane.showInputDialog(str);
+		return res;
+	}
+
+	public void setText(MemoVo vo) {
+		if(vo !=null) {
+			tfNo.setText(String.valueOf(vo.getNo()));
+			tfName.setText(vo.getName());
+			tfMsg.setText(vo.getMsg());
+			tfDate.setText(vo.getWdate().toString());
+			
+			
+		}
 	}
 
 

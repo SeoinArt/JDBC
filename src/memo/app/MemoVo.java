@@ -16,6 +16,10 @@ public class MemoVo {
 	public MemoVo() {
 		this(0,null,null,null);
 	}
+	public MemoVo(int no, String name, String msg) {
+		this(no,name,msg,null);
+	}
+	
 	public MemoVo(int no, String name, String msg, Date wdate) {
 		super();
 		this.no = no;
@@ -51,5 +55,6 @@ public class MemoVo {
 	public void setWdate(java.sql.Date wdate) {
 		this.wdate = wdate;
 	}
+	
 
 }////////////////////////////
